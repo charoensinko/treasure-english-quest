@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treasure English Quest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-stage" aria-label="Treasure English Quest game">
+        <header class="topbar">
+          <div>
+            <p class="game-label">Vocabulary Adventure</p>
+            <h1>Treasure English Quest</h1>
+          </div>
+          <div class="hud">
+            <div class="hud-item">
+              <span>ด่าน</span>
+              <strong id="levelNumber">1/5</strong>
+            </div>
+            <div class="hud-item">
+              <span>คะแนน</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="hud-item">
+              <span>Hint</span>
+              <strong id="hintCount">2</strong>
+            </div>
+          </div>
+        </header>
+
+        <div class="play-layout">
+          <aside class="quest-panel" aria-label="Current quest">
+            <div class="theme-badge" id="themeBadge">Jungle Quest</div>
+            <h2 id="levelTitle">ป่าลึกลับ</h2>
+            <p id="npcLine">NPC: Find the hidden treasure chest, then answer the vocabulary question.</p>
+
+            <div class="vocab-log">
+              <h3>คำศัพท์ที่ปลดล็อก</h3>
+              <ul id="vocabList">
+                <li>เริ่มเดินทางเพื่อเก็บคำศัพท์แรก</li>
+              </ul>
+            </div>
+
+            <button class="magic-button" id="hintButton" type="button">
+              <span aria-hidden="true">✦</span>
+              Dictionary Magic
+            </button>
+          </aside>
+
+          <section class="map-wrap" aria-label="Adventure map">
+            <div class="map-art" aria-hidden="true"></div>
+            <div class="board" id="board"></div>
+            <div class="avatar" id="avatar" role="button" tabindex="0" aria-label="Explorer avatar">
+              <span class="avatar-face">🙂</span>
+            </div>
+            <div class="treasure" id="treasure" aria-label="Treasure chest">🎁</div>
+            <div class="toast" id="toast" role="status" aria-live="polite">Use arrow keys to move.</div>
+          </section>
+
+          <aside class="leaderboard" aria-label="Leaderboard">
+            <h2>Leaderboard</h2>
+            <ol id="leaderboardList"></ol>
+            <button class="ghost-button" id="restartButton" type="button">เริ่มใหม่</button>
+          </aside>
+        </div>
+
+        <div class="controls" aria-label="Movement controls">
+          <button class="control-btn" data-move="up" aria-label="Move up">↑</button>
+          <button class="control-btn" data-move="left" aria-label="Move left">←</button>
+          <button class="control-btn" data-move="down" aria-label="Move down">↓</button>
+          <button class="control-btn" data-move="right" aria-label="Move right">→</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop hidden" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+      <section class="quiz-card">
+        <p class="npc-tag">NPC Guide</p>
+        <h2 id="quizTitle">Vocabulary Quiz</h2>
+        <p class="question" id="questionText"></p>
+        <div class="answers" id="answers"></div>
+        <p class="hint-text" id="hintText"></p>
+      </section>
+    </div>
+
+    <div class="modal-backdrop hidden" id="finishModal" role="dialog" aria-modal="true" aria-labelledby="finishTitle">
+      <section class="quiz-card finish-card">
+        <p class="npc-tag">Treasure Island</p>
+        <h2 id="finishTitle">ภารกิจสำเร็จ!</h2>
+        <p id="finishText"></p>
+        <button class="primary-button" id="playAgainButton" type="button">เล่นอีกครั้ง</button>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
